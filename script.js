@@ -34,3 +34,17 @@ async function showPosts() {
 
 // Show initial posts
 showPosts();
+
+window.addEventListener('scroll', () => {
+    const {
+        scrollTop,
+        scrollHeight,
+        clientHeight
+    } = document.documentElement;
+    console.log(scrollTop, 'SCROLL TOP');
+    console.log(clientHeight, 'CLIENT HEIGHT');
+    console.log(scrollHeight, "SCROLL HEIGHT");
+    if (scrollTop + clientHeight >= scrollHeight - 5) {
+        showLoading()
+    }
+})
